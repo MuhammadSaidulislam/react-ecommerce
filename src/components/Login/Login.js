@@ -243,6 +243,20 @@ function Login() {
       </form>
       <p style={{color: 'red'}}>{user.error}</p>
       { user.success && <p style={{color: 'green'}}>User { newUser ? 'created' : 'Logged In'} successfully</p>}
+      <h1>Our own Authentication</h1>
+      <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id=""/>
+      <label htmlFor="newUser">New User Sign up</label>
+      <form onSubmit={handleSubmit}>
+        {newUser && <input name="name" type="text" onBlur={handleBlur} placeholder="Your name"/>}
+        <br/>
+        <input type="text" name="email" onBlur={handleBlur} placeholder="Your Email address" required/>
+        <br/>
+        <input type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required/>
+        <br/>
+        <input type="submit" value={newUser ? 'Sign up' : 'Sign in'}/>
+      </form>
+      <p style={{color: 'red'}}>{user.error}</p>
+      { user.success && <p style={{color: 'green'}}>User { newUser ? 'created' : 'Logged In'} successfully</p>}
     </div>
   );
 }
